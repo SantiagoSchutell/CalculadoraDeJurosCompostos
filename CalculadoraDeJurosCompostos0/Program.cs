@@ -11,19 +11,24 @@ namespace CalculadoraDeJurosCompostos0
             Calc calc = new Calc();
 
             Console.Write("Investimento inicial: R$ ");
-            double ValorInicial = double.Parse(Console.ReadLine());
+            calc.ValorInicial = double.Parse(Console.ReadLine());
 
             Console.Write("Valor Mensal: ");
-            double ValorMensal = double.Parse(Console.ReadLine());
+            calc.ValorMensal = double.Parse(Console.ReadLine());
 
 
             Console.Write("Tempo em Meses: ");
-            int Ano = int.Parse(Console.ReadLine());
+            calc.TempoEmMeses = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Taxa de Juros a.a: ");
-            double Juros = double.Parse(Console.ReadLine());
+            Console.Write("Taxa de Juros a.a: ");
+            calc.Juros = double.Parse(Console.ReadLine())/100;
 
-            Console.WriteLine($"No final de {calc.Ano} anos você terá R$ ");
+            double resultadoFinal = calc.CalcularValorFinal();
+
+
+            Console.WriteLine($"No final de {calc.TempoEmMeses} meses você terá R$ {resultadoFinal:F2}");
+
+            Console.ReadKey();
 
         }
     }
